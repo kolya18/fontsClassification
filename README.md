@@ -7,5 +7,5 @@
 ### source venv/bin/activate
 ### pip install tensorflow numpy
 ### pip install Pillow
-### python3 font.py font_model.h5 test.png
+## python3 font.py font_model.h5 test.png
 ### deactivate
