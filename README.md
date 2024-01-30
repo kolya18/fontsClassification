@@ -11,3 +11,4 @@ pip install Pillow
 python3 font.py font_model.h5 test.png
 deactivate
 ```
+### [venv.zip](https://disk.yandex.ru/d/WFasAl9Xun6T3A)
