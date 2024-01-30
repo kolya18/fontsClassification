@@ -1,7 +1,7 @@
 # Распознавание шрифтов
 В папке fonts лежат шрифты для латинского алфавита.
-## [Чтение шрифтов из папки fonts. Генерация обучающей и тестовой выборки на основании шрифтов. Модуль обучения. Оценка основных метрик классификации.](https://github.com/kolya18/fontsClassification/blob/main/MartynovNickolay_fonts.ipynb)
-## [Модуль распознавания (Консольное приложение)](https://github.com/kolya18/fontsClassification/blob/main/font.py)
+## [Чтение шрифтов из папки fonts. Генерация обучающей и тестовой выборки на основании шрифтов. Модуль обучения. Оценка основных метрик классификации. MartynovNickolay_fonts.ipynb](https://github.com/kolya18/fontsClassification/blob/main/MartynovNickolay_fonts.ipynb)
+## [Модуль распознавания (Консольное приложение) font.py ](https://github.com/kolya18/fontsClassification/blob/main/font.py)
 ```
 pip install virtualenv
 virtualenv venv
