@@ -19,33 +19,6 @@ def predict_font(model, image_path):
     probability = predictions[0][predicted_class]
     return predicted_class, probability
 
-def predict_class(case_number):
-
-    class_predictions = [
-        "Aguante-Regular.otf",
-        "AlumniSansCollegiateOne-Italic.ttf",
-        "AlumniSansCollegiateOne-Regular.ttf",
-        "ambidexter_regular.otf",
-        "ArefRuqaaInk-Bold.ttf",
-        "ArefRuqaaInk-Regular.ttf",
-        "better-vcr-5.2.ttf",
-        "BrassMono-Bold.ttf",
-        "BrassMono-BoldItalic.ttf",
-        "BrassMono-Italic.ttf",
-        "BrassMono-Regular.ttf",
-        "GaneshaType-Regular.ttf",
-        "GhastlyPanicCyr.otf",
-        "Realest-Extended.otf",
-        "TanaUncialSP.otf"
-    ]
-
-    if 0 <= case_number < len(class_predictions):
-        p_class = class_predictions[case_number]
-        return p_class
-    else:
-        return "Invalid case number"
-
-
 def main():
     parser = argparse.ArgumentParser(description='Font Recognition Console App')
     parser.add_argument('checkpoint_path', type=str, help='Path to the model checkpoint file')
@@ -55,10 +28,16 @@ def main():
     #загрузка обученной модели
     model = tf.keras.models.load_model(args.checkpoint_path)
 
+    #маппинг
+    file_fonts = ['Aguante-Regular.otf', 'AlumniSansCollegiateOne-Italic.ttf', 'AlumniSansCollegiateOne-Regular.ttf', 'ArefRuqaaInk-Bold.ttf', 'ArefRuqaaInk-Regular.ttf', 'BrassMono-Bold.ttf', 'BrassMono-BoldItalic.ttf', 'BrassMono-Italic.ttf', 'BrassMono-Regular.ttf', 'GaneshaType-Regular.ttf', 'GhastlyPanicCyr.otf', 'Realest-Extended.otf', 'TanaUncialSP.otf', 'ambidexter_regular.otf', 'better-vcr-5.2.ttf']
+    mapping_dict = {index: font for index, font in enumerate(file_fonts)}
+
+
     #предсказание шрифта для заданного изображения
     predicted_class, probability = predict_font(model, args.image_path)
     print(f"{predicted_class}")
-    print(f"{predict_class(predicted_class)}")
+    font_name = mapping_dict.get(predicted_class, "Неизвестный индекс")
+    print(f"{font_name}")
     print(f"{probability}")
 
 if __name__ == "__main__":
